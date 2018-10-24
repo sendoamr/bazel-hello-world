@@ -60,3 +60,14 @@ Run HelloWorl in c
 ```bash
 bazel run //c:helloWorld
 ```
+
+
+## TESTS
+Build all tests
+```bash
+bazel test //...:all --test_output=all
+```
+Run Spific test
+```bash
+bazel test //{c|go|java|node|python|shell}:helloWorldTest --test_output=all
+```
