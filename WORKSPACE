@@ -29,13 +29,15 @@ http_archive(
     urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.16.0/rules_go-0.16.0.tar.gz"],
     sha256 = "ee5fe78fe417c685ecb77a0a725dc9f6040ae5beb44a0ba4ddb55453aad23a8a",
 )
-http_archive(
-    name = "bazel_gazelle",
-    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.15.0/bazel-gazelle-0.15.0.tar.gz"],
-    sha256 = "6e875ab4b6bf64a38c352887760f21203ab054676d9c1b274963907e0768740d",
-)
+
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 go_rules_dependencies()
 go_register_toolchains()
-load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
-gazelle_dependencies()
+
+new_http_archive(
+    name = "gtest",
+    url = "https://github.com/google/googletest/archive/release-1.7.0.zip",
+    sha256 = "b58cb7547a28b2c718d1e38aee18a3659c9e3ff52440297e965f5edffe34b6d0",
+    build_file = "gtest.BUILD",
+    strip_prefix = "googletest-release-1.7.0",
+)
