@@ -1,0 +1,29 @@
+# "Temporarily" added during maven_install() transition. Remove this once all
+# implicit deps have been fixed.
+build --experimental_strict_java_deps=off
+
+# Encode the version in every build.
+build --workspace_status_command=tools/workspace_status.sh
+
+# Ensure we use the hermetic C++ toolchain.
+build --incompatible_enable_cc_toolchain_resolution
+
+build --symlink_prefix=.bazel/
+
+# Make TypeScript compilation fast, by keeping a few copies of the compiler
+# running as daemons, and cache SourceFile ASTs to reduce parse time.
+build --strategy=TypeScriptCompile=worker
+
+# Slightly improve the overhead of the darwin sandbox. This is not a
+# full solution as the overhead is still very significant. See:
+# https://github.com/bazelbuild/bazel/issues/8230
+build --experimental_reuse_sandbox_directories
+build --experimental_sandbox_async_tree_delete_idle_threads=auto
+
+# Make it easier to see test failure messages.
+test --test_output=errors
+
+# BuildBuddy-setup
+build --bes_results_url=https://app.buildbuddy.io/invocation/
+build --bes_backend=grpcs://remote.buildbuddy.io
+build --remote_header=x-buildbuddy-api-key=Sfd5WPSgzwUkeeNct11u
