@@ -1,12 +1,17 @@
-import unittest
+import pytest
 
 import helloWorld
 
-class SimplisticTest(unittest.TestCase):
+def test_helloWorld_output():
+    result = helloWorld.hello_world()
+    print(f"result : {result}\n")
+    assert result
 
-    def test(self):
-    	helloWorld.hello_world()
-        self.assertTrue(True)
+# class SimplisticTest(unittest.TestCase):
 
-if __name__ == '__main__':
-	unittest.main()
+#     def test(self):
+#     	helloWorld.hello_world()
+#         self.assertTrue(True)
+
+# if __name__ == '__main__':
+# 	unittest.main()
