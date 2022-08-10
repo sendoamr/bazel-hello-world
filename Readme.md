@@ -13,16 +13,6 @@ Run HelloWorl in java
 bazel run //java:helloWorld
 ```
 
-## Node.js
-Build a executable  bazel-bin/node/helloWorld_bin.sh
-```bash
-bazel build //node:helloWorld
-```
-Run HelloWorl in node.js
-```bash
-bazel run //node:helloWorld
-```
-
 ## Python
 Build a executable  bazel-bin/python/helloWorld
 ```bash
@@ -33,35 +23,7 @@ Run HelloWorl in python
 bazel run //python:helloWorld
 ```
 
-## Shell
-Build a executable  bazel-bin/shell/helloWorld
-```bash
-bazel build //shell:helloWorld
-```
-Run HelloWorl in shell
-```bash
-bazel run //shell:helloWorld
-```
 
-## Go
-Build a executable bazel-bin/go/linux_amd64_stripped/helloWorld
-```bash
-bazel build //go:helloWorld
-```
-Run HelloWorl in go
-```bash
-bazel run //go:helloWorld
-```
-
-## C
-Build a executable bazel-bin/c/helloWorld
-```bash
-bazel build //c:helloWorld
-```
-Run HelloWorl in c
-```bash
-bazel run //c:helloWorld
-```
 
 
 ## TESTS
@@ -71,5 +33,5 @@ bazel test //...:all --test_output=all
 ```
 Run Spific test
 ```bash
-bazel test //{c|go|java|node|python|shell}:helloWorldTest --test_output=all
+bazel test //{java|python}:helloWorldTest --test_output=all
 ```
