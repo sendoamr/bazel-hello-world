@@ -3,6 +3,6 @@ def hello_world():
   file = open("resources/hello.json", "r") 
   x = (file.read())
   print(x)
-  return x
+
 
 hello_world()
